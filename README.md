@@ -1,6 +1,19 @@
 # Students Habits
 
-This projects take data from a csv file, what it is about a students habits.
-Using libs like pandas and seaborn generate graphics to analyse the informations.
+Análise de dados do dataset `student_habits_performance.csv`, que descreve
+hábitos diários de estudantes (estudo, sono, alimentação, redes sociais,
+exercício, saúde mental) e a respectiva nota final.
 
-## Author: Ezequiel
+O projeto fornece um pacote Python reutilizável, notebooks de exploração
+e uma pequena CLI para reproduzir as análises.
+
+## Uso rápido
+
+```bash
+pip install -r requirements.txt
+jupyter lab b_notebooks/habits.ipynb
+```
+
+## Autor
+
+Ezequiel Ferreira
