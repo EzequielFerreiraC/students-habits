@@ -1,3 +1,6 @@
 """Students habits analysis package."""
 
-__version__ = "0.1.0"
+from . import correlations as correlation  # backwards-compat alias
+
+__all__ = ["correlation", "correlations"]
+__version__ = "0.2.0"
