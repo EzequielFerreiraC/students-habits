@@ -16,6 +16,15 @@ NUMERIC_COLUMNS = [
     "exam_score",
 ]
 
+CATEGORICAL_COLUMNS = [
+    "gender",
+    "part_time_job",
+    "diet_quality",
+    "parental_education_level",
+    "internet_quality",
+    "extracurricular_participation",
+]
+
 
 def drop_duplicates(df: pd.DataFrame) -> pd.DataFrame:
     return df.drop_duplicates(subset="student_id", keep="first")
@@ -29,6 +38,14 @@ def fill_numeric_missing(df: pd.DataFrame) -> pd.DataFrame:
     return out
 
 
+def fill_categorical_missing(df: pd.DataFrame, fill: str = "Unknown") -> pd.DataFrame:
+    out = df.copy()
+    for col in CATEGORICAL_COLUMNS:
+        if col in out.columns:
+            out[col] = out[col].fillna(fill)
+    return out
+
+
 def normalize_strings(df: pd.DataFrame) -> pd.DataFrame:
     out = df.copy()
     for col in out.select_dtypes(include="object").columns:
@@ -37,4 +54,6 @@ def normalize_strings(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def clean(df: pd.DataFrame) -> pd.DataFrame:
-    return normalize_strings(fill_numeric_missing(drop_duplicates(df)))
+    return normalize_strings(
+        fill_categorical_missing(fill_numeric_missing(drop_duplicates(df)))
+    )
