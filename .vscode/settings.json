@@ -4,12 +4,14 @@
   "python.analysis.typeCheckingMode": "basic",
   "python.analysis.extraPaths": ["c_src"],
   "editor.formatOnSave": true,
+  "editor.rulers": [88],
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter",
     "editor.tabSize": 4
   },
   "files.exclude": {
     "**/__pycache__": true,
-    "**/.pytest_cache": true
+    "**/.pytest_cache": true,
+    "**/*.egg-info": true
   }
 }
