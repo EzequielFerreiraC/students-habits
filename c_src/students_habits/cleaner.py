@@ -26,6 +26,16 @@ CATEGORICAL_COLUMNS = [
 ]
 
 
+def normalize_column_names(df: pd.DataFrame) -> pd.DataFrame:
+    out = df.copy()
+    out.columns = (
+        out.columns.str.strip()
+        .str.lower()
+        .str.replace(r"[ \-]+", "_", regex=True)
+    )
+    return out
+
+
 def drop_duplicates(df: pd.DataFrame) -> pd.DataFrame:
     return df.drop_duplicates(subset="student_id", keep="first")
 
@@ -55,5 +65,7 @@ def normalize_strings(df: pd.DataFrame) -> pd.DataFrame:
 
 def clean(df: pd.DataFrame) -> pd.DataFrame:
     return normalize_strings(
-        fill_categorical_missing(fill_numeric_missing(drop_duplicates(df)))
+        fill_categorical_missing(
+            fill_numeric_missing(drop_duplicates(normalize_column_names(df)))
+        )
     )
