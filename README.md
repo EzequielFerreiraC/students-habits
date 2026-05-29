@@ -7,17 +7,6 @@ exercício, saúde mental) e a respectiva nota final.
 O projeto fornece um pacote Python reutilizável, notebooks de exploração,
 uma CLI e scripts utilitários para reproduzir as análises.
 
-## Estrutura
-
-```
-a_data/        Dataset bruto
-b_notebooks/   Notebooks Jupyter
-c_src/         Código fonte do pacote students_habits
-d_tests/       Suite pytest
-e_docs/        Documentação
-z_scripts/     Scripts utilitários
-```
-
 ## Uso rápido
 
 ```bash
